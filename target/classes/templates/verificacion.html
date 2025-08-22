@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Verification</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Verificación de Cuenta</h1>
+            <p>Se ha enviado un código a <strong th:text="${email}">tu email</strong>. Por favor, ingrésalo a continuación.</p>
+
+            <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+            <form th:action="@{/verification}" method="post">
+                <input type="hidden" name="email" th:value="${email}" />
+
+                <div class="form-group">
+                    <label for="verification">Código de Verificación</label>
+                    <input type="text" name="verification" id="verification" class="form-control" placeholder="Introduce el código" autofocus="autofocus">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Verificar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

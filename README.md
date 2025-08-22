@@ -1,15 +1,57 @@
-# springboot-thymeleaf-crud-pagination-sorting-webapp
+# CRUD de Empleados con Spring Boot y Thymeleaf
 
-Spring Boot CRUD Web application with Pagination and Sorting features using Spring Boot, ThymeLeaf, Spring Data JPA, Hibernate, MySQL database
+Este es un proyecto de demostración de una aplicación web CRUD (Crear, Leer, Actualizar, Eliminar) de empleados desarrollada con Spring Boot y Thymeleaf.
 
-### Tutorial - Spring Boot CRUD Web Application with Thymeleaf, Spring MVC, Spring Data JPA, Hibernate, MySQL
-https://www.javaguides.net/2020/05/spring-boot-crud-web-application-with-thymeleaf.html
+## Características
 
-### YouTube Video - Spring Boot CRUD Web Application with Thymeleaf, Spring MVC, Spring Data JPA, Hibernate, MySQL
-https://youtu.be/_5sAmaRJd2c
+*   Listar empleados con paginación y ordenamiento.
+*   Agregar nuevos empleados.
+*   Actualizar la información de los empleados existentes.
+*   Eliminar empleados.
+*   Inicio de sesión de usuario y registro con verificación por correo electrónico.
 
-### Tutorial - Pagination and Sorting with Spring Boot, ThymeLeaf, Spring Data JPA, Hibernate, MySQL
-https://www.javaguides.net/2020/06/pagination-and-sorting-with-spring-boot-thymeleaf-spring-data-jpa-hibernate-mysql.html
+## Tecnologías Utilizadas
 
-### YouTube Video  - Pagination and Sorting with Spring Boot, ThymeLeaf, Spring Data JPA, Hibernate, MySQL
-=> https://youtu.be/Aie8n12EFQc
+*   **Framework:** Spring Boot 3.1.5
+*   **Lenguaje de Programación:** Java 17
+*   **Motor de Plantillas:** Thymeleaf
+*   **Persistencia de Datos:** Spring Data JPA (Hibernate)
+*   **Base de Datos:** PostgreSQL
+*   **Seguridad:** Spring Security
+*   **Dependencias:**
+    *   `spring-boot-starter-data-jpa`
+    *   `spring-boot-starter-thymeleaf`
+    *   `spring-boot-starter-web`
+    *   `spring-boot-starter-security`
+    *   `spring-boot-starter-mail`
+    *   `postgresql`
+    *   `lombok`
+
+## Configuración del Entorno Local
+
+### Prerrequisitos
+
+*   JDK 17 o superior.
+*   Maven 3.2 o superior.
+*   Una base de datos PostgreSQL en ejecución.
+
+### Pasos
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/tu-usuario/CRUD_Empleados_SENA.git
+    ```
+2.  **Configurar la base de datos:**
+    *   Cree una base de datos en PostgreSQL.
+    *   Actualice el archivo `src/main/resources/application.properties` con la URL de su base de datos, el nombre de usuario y la contraseña.
+3.  **Configurar el correo electrónico:**
+    *   Actualice el archivo `src/main/resources/application.properties` con la configuración de su servidor de correo.
+4.  **Ejecutar la aplicación:**
+    ```bash
+    mvn spring-boot:run
+    ```
+    La aplicación estará disponible en `http://localhost:8080`.
+
+## Despliegue
+
+Esta aplicación está configurada para ser desplegada en [Render](https://render.com/) utilizando una base de datos PostgreSQL. Las variables de entorno `JDBC_DATABASE_URL`, `JDBC_DATABASE_USERNAME` y `JDBC_DATABASE_PASSWORD` se utilizan para configurar la conexión a la base de datos en el entorno de producción.

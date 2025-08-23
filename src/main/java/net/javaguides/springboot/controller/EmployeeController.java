@@ -21,10 +21,14 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
-	// display list of employees
 	@GetMapping("/")
-	public String viewHomePage(Model model) {
-		return findPaginated(1, "firstName", "asc", model);		
+	public String viewHomePage() {
+		return "index";		
+	}
+
+	@GetMapping("/crud_empleados")
+	public String viewCrudPage(Model model) {
+		return findPaginated(1, "firstName", "asc", model);
 	}
 	
 	@GetMapping("/showNewEmployeeForm")
@@ -39,7 +43,7 @@ public class EmployeeController {
 	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
 		// save employee to database
 		employeeService.saveEmployee(employee);
-		return "redirect:/";
+		return "redirect:/crud_empleados";
 	}
 	
 	@GetMapping("/showFormForUpdate/{id}")
@@ -58,7 +62,7 @@ public class EmployeeController {
 		
 		// call delete employee method 
 		this.employeeService.deleteEmployeeById(id);
-		return "redirect:/";
+		return "redirect:/crud_empleados";
 	}
 	
 	
@@ -81,6 +85,11 @@ public class EmployeeController {
 		model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 		
 		model.addAttribute("listEmployees", listEmployees);
-		return "index";
+		return "crud_empleados";
+	}
+
+	@GetMapping("/sena_info_2")
+	public String senaInfo2() {
+		return "sena_info_2";
 	}
 }

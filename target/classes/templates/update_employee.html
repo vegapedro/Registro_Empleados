@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Sistema de Administracion de Empleados - Edicion de Registro</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body class="d-flex flex-column min-vh-100">
-	<div class="container flex-grow-1">
-		<h1>Sistema de Administracion de Empleados - Edicion de Registro</h1>
-		<hr>
-		<h2>Actualizacion del Empleado</h2>
+<head th:replace="~{fragments :: main_header('Editar Empleado')}"></head>
 
-		<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
-			method="POST">
-			
-			<!-- Add hidden form field to handle update -->
-			<input type="hidden" th:field="*{id}" />
-			
-			<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
-				
-				<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
-				
-				<input type="text" th:field="*{email}" class="form-control mb-4 col-4">
-				
-				<button type="submit" class="btn btn-info col-2"> Actualizar Empleado</button>
-		</form>
+<body>
+
+<div th:replace="~{fragments :: navbar}"></div>
+
+<div class="container main-content">
+	<h1>Sistema de Administracion de Empleados - Edicion de Registro</h1>
+	<hr>
+	<h2>Actualizacion del Empleado</h2>
+
+	<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
+		method="POST">
 		
-		<hr>
+		<!-- Add hidden form field to handle update -->
+		<input type="hidden" th:field="*{id}" />
 		
-		<a th:href = "@{/}">Regresar a la lista Principal</a>
-	</div>
-	<div th:replace="~{fragments :: footer}"></div>
+		<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+			
+			<button type="submit" class="btn btn-info col-2"> Actualizar Empleado</button>
+	</form>
+	
+	<hr>
+		
+	<a th:href = "@{/}">Regresar a la lista Principal</a>
+</div>
+
+<div th:replace="~{fragments :: footer}"></div>
+
 </body>
 </html>
